@@ -1,0 +1,19 @@
+.header-mainBox{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    padding: 0.5rem;
+    background-color: white;
+    
+}
+
+.header-childBox{
+    display: flex;
+    width: 10rem;
+    justify-content: space-between;
+
+}
