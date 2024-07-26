@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'JoFont';
+    src: url('../../public/font/OlympicHeadline-Regular.woff2') format('woff2'),
+         url('../../public/font/OlympicHeadline-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Jofont', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+@import 'MapBox';
+@import 'Header';

@@ -1,17 +1,23 @@
 import { Component } from "../core/MiniReact.js";
 
-class Button extends Component {
+
+ class Button extends Component {
+ 
+ constructor(props)
+ {
+  super(props);
+  this.props = props;
+ }
+
   render() {
     return {
       type: "button",
       props: {
-        style: {
-          "background-color": "red",
-        },
+
         ...this.props,
       },
       events: {
-        click: [this.props.onClick],
+        click: [this.props.onClick]
       },
       children: [
         {

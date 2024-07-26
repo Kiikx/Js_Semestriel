@@ -1,19 +1,34 @@
+import {initMap} from "../core/MapBoxConfig";
+
 const BrowserRouter = function (routes, rootElement) {
   const generatePage = () => {
     const path = location.pathname;
+    console.log(location.pathname);
+
     const structure = routes[path] ?? routes["*"];
+
+    console.log(structure);
     if (rootElement.childNodes.length) {
       rootElement.replaceChild(
         this.renderStructure(structure),
         rootElement.childNodes[0]
       );
     } else rootElement.appendChild(this.renderStructure(structure));
+
+    if (location.pathname == "/home") 
+      {
+        initMap();
+      }
   };
   generatePage();
+
+
+  
+
   const oldPushState = history.pushState;
   history.pushState = function (state, title, url) {
-    oldPushState.call(history, state, title, url);
-    window.dispatchEvent(new Event("popstate"));
+  oldPushState.call(history, state, title, url);
+  window.dispatchEvent(new Event("popstate"));
   };
   window.onpopstate = generatePage;
 };
@@ -28,6 +43,7 @@ export const BrowserLink = function (props) {
       click: [
         function (event) {
           event.preventDefault();
+          console.log(`Navigating to ${props.to}`);
           history.pushState(null, null, props.to);
         },
       ],
@@ -40,5 +56,7 @@ export const BrowserLink = function (props) {
     ],
   };
 };
+
+
 
 export default BrowserRouter;
